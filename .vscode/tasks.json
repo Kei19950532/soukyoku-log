@@ -3,12 +3,15 @@
     "options": {
         "env": {}
     },
-    "inputs": [{
-        "id": "openssl-key",
-        "description": "Input key name",
-        "type": "promptString"
-    }],
-    "tasks": [{
+    "inputs": [
+        {
+            "id": "openssl-key",
+            "description": "Input key name",
+            "type": "promptString"
+        }
+    ],
+    "tasks": [
+        {
             "label": "OpenSSL: Generate Keys for localhost",
             "detail": "localhost用の自己署名キーを生成する",
             "type": "shell",
@@ -16,9 +19,12 @@
                 "clear": true
             },
             "command": [
+                "mkdir certs;",
                 "openssl genrsa -out certs/server.key 3072 && ",
+                "echo \"subjectAltName = DNS:localhost, IP:127.0.0.1\" > certs/sans &&",
                 "openssl req -new -key certs/server.key -out certs/server.csr -subj \"/CN=localhost\" &&",
-                "openssl x509 -req -in certs/server.csr -days 36500 -signkey certs/server.key -out certs/server.crt -extfile certs/san/san.txt"
+                "openssl x509 -req -in certs/server.csr -days 36500 -signkey certs/server.key -out certs/server.crt -extfile certs/sans &&",
+                "rm certs/sans && rm certs/server.csr"
             ]
         },
         {
