@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "options": {
+        "env": {}
+    },
+    "inputs": [{
+        "id": "openssl-key",
+        "description": "Input key name",
+        "type": "promptString"
+    }],
+    "tasks": [{
+            "label": "OpenSSL: Generate Keys for localhost",
+            "detail": "localhost用の自己署名キーを生成する",
+            "type": "shell",
+            "presentation": {
+                "clear": true
+            },
+            "command": [
+                "openssl genrsa -out certs/server.key 3072 && ",
+                "openssl req -new -key certs/server.key -out certs/server.csr -subj \"/CN=localhost\" &&",
+                "openssl x509 -req -in certs/server.csr -days 36500 -signkey certs/server.key -out certs/server.crt -extfile certs/san/san.txt"
+            ]
+        },
+        {
+            "label": "Artisan: Reset on the test database and run the test",
+            "detail": "テストデータベース上でリセットし、テストを実行する",
+            "type": "shell",
+            "command": [
+                "php artisan optimize:clear --env=testing &&",
+                "php artisan cache:clear --env=testing &&",
+                "php artisan migrate:fresh --seed --env=testing &&",
+                "echo \"テストを開始します\" &&",
+                "php artisan test"
+            ]
+        },
+        {
+            "label": "Artisan: Clear all cache",
+            "detail": "全てのキャッシュをクリアする",
+            "type": "shell",
+            "command": [
+                "php artisan optimize:clear &&",
+                "php artisan cache:clear"
+            ]
+        }
+    ]
+}

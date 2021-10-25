@@ -1,0 +1,54 @@
+{
+    "dockerComposeFile": ["docker-compose.yml"],
+    "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "codingyu.laravel-goto-view",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "glitchbl.laravel-create-view",
+        "hookyqr.beautify",
+        "onecentlin.laravel-extension-pack",
+        "VisualStudioExptTeam.vscodeintellicode"
+    ],
+    "name": "laravel-app",
+    "postCreateCommand": "composer install && npm install && chown www-data storage/ -R",
+    "remoteEnv": {
+        "EDITOR": "code --wait"
+    },
+    "service": "laravel-app",
+    "settings": {
+        "[php]": {
+            "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+        },
+        "[blade]": {
+            "editor.defaultFormatter": "onecentlin.laravel-blade",
+            "editor.formatOnSave": true
+        },
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?、。　",
+        "emmet.includeLanguages": {
+            "javascript": "javascriptreact"
+        },
+        "emmet.syntaxProfiles": {
+            "html": {
+                "attr_quotes": "single"
+            },
+            "jsx": {
+                "self_closing_tag": true
+            }
+        },
+        "emmet.triggerExpansionOnTab": true,
+        "intelephense.diagnostics.undefinedMethods": false,
+        "intelephense.diagnostics.undefinedTypes": false,
+        "javascript.format.enable": false,
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+    },
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/var/www/html"
+}

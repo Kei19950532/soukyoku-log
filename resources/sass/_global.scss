@@ -1,0 +1,17 @@
+@import "destyle";
+@import "variables";
+
+// 「px」を使用するのに似た感覚でフォントサイズをrem指定するための設定
+// bodyでemを使うのはChromeのバグ対応
+
+html {
+    font-size: 62.5%;
+    /* -> 10px; */
+}
+
+body {
+    font-size: 1.4em;
+    /* -> 14px; */
+}
+
+// 初期設定ここまで

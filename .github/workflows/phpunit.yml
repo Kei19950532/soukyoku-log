@@ -1,0 +1,43 @@
+on:
+  push:
+    branches: [master, development]
+
+name: PHP Unit Test
+
+jobs:
+  build:
+    name: Testing
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        ports:
+          - 3306:3306
+        options: --health-cmd "mysqladmin ping -h localhost" --health-interval 20s --health-timeout 10s --health-retries 10
+        env:
+          MYSQL_ROOT_PASSWORD: secret
+          MYSQL_DATABASE: test_database
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Installing PHP
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: 8.0
+      - name: cache vendor
+        id: cache
+        uses: actions/cache@v1
+        with:
+          path: ./vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      - name: composer install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: composer install -n -q --no-scripts
+      - name: composer dump autoload
+        run: composer dump-autoload --no-scripts
+      - name: migrate
+        run: DB_HOST=127.0.0.1 php artisan migrate:fresh --seed --env=testing
+      - name: Executio PHP Unit
+        run: DB_HOST=127.0.0.1 php artisan test
