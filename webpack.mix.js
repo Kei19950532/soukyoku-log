@@ -8,6 +8,12 @@ const DIR = {
     blade: "resources/views/**/*.blade.php",
 };
 
+mix.ts("resources/ts/index.tsx", "public/js");
+
+if (mix.inProduction()) {
+    mix.version();
+}
+
 glob.sync(DIR.js).map((file) => {
     mix.js(file, "public/js")
         .sourceMaps(productionSourceMaps, "source-map")
