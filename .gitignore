@@ -19,6 +19,7 @@ yarn-error.log
 /.devcontainer/mysql/mysql-files/*
 /.devcontainer/redis/data/*
 /.devcontainer/redis/dump.rdb
+/.vscode/settings.json
 *.crt
 *.csr
 *.key

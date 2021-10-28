@@ -1,0 +1,46 @@
+{
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "prettier",
+        "prettier/@typescript-eslint"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "jsx": true,
+        "useJSXTextNode": true
+    },
+    "plugins": ["@typescript-eslint", "react-hooks", "import"],
+    "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "react-hooks/exhaustive-deps": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react/prop-types": 0,
+        "import/order": [
+            "error",
+            {
+                "newlines-between": "always",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                },
+                "groups": [
+                    "builtin",
+                    "external",
+                    ["internal", "parent", "sibling"],
+                    "index",
+                    "object"
+                ]
+            }
+        ]
+    },
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"],
+                /** エイリアスを増やす場合は、webpack.config.js, tsconfig.paths.json, .eslintrc.json の3つのファイルの変更が必要です */
+                "map": [["@", "./resources/ts"]]
+            }
+        }
+    }
+}

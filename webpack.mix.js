@@ -2,35 +2,30 @@ const mix = require("laravel-mix");
 const glob = require("glob");
 const productionSourceMaps = false;
 
-const DIR = {
-    js: "resources/js/**/*.js",
-    sass: "resources/sass/**/*.scss",
-    blade: "resources/views/**/*.blade.php",
-};
+const version = process.env.MIX_GITHUB_SHA ?? "development";
 
-mix.ts("resources/ts/index.tsx", "public/js");
+/** webpack.config.jsで定義されているwebpackの設定 */
+const config = require("./webpack.config");
 
-if (mix.inProduction()) {
-    mix.version();
-}
+/** JSのファイル名規則 */
+const indexJsName = "public/js/" + version + ".js";
 
-glob.sync(DIR.js).map((file) => {
-    mix.js(file, "public/js")
-        .sourceMaps(productionSourceMaps, "source-map")
-        .options({
-            terser: {
-                terserOptions: {
-                    compress: {
-                        drop_console: true,
-                    },
+/** CSSのファイル名規則 */
+const mainCssName = "public/css/" + version + ".css";
+
+mix.ts("resources/ts/index.tsx", indexJsName)
+    .sourceMaps(productionSourceMaps, "eval-source-map")
+    .options({
+        terser: {
+            terserOptions: {
+                compress: {
+                    drop_console: true,
                 },
             },
-        });
-});
-
-glob.sync(DIR.sass).map((file) => {
-    mix.sass(file, "public/css");
-});
+        },
+    })
+    .sass("resources/sass/style.scss", mainCssName)
+    .webpackConfig(config);
 
 mix.browserSync({
     https: {
@@ -49,5 +44,5 @@ mix.browserSync({
     },
     open: false,
     reloadOnRestart: true,
-    files: [DIR.js, DIR.sass, DIR.blade],
+    files: ["resources/sass/**/*.scss", "resources/ts/**/*.*"],
 });
