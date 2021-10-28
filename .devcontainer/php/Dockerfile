@@ -19,5 +19,5 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     docker-php-ext-install intl pdo_mysql zip bcmath
 
-RUN npm install npm@latest -g
+RUN npm install -g npm@8.1.1
 

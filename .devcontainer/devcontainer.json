@@ -10,12 +10,12 @@
         "onecentlin.laravel-extension-pack",
         "VisualStudioExptTeam.vscodeintellicode"
     ],
-    "name": "laravel-app",
+    "name": "soukyoku-log",
     "postCreateCommand": "composer install && npm install && chown www-data storage/ -R",
     "remoteEnv": {
         "EDITOR": "code --wait"
     },
-    "service": "laravel-app",
+    "service": "soukyoku-log",
     "settings": {
         "[php]": {
             "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
