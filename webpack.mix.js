@@ -13,7 +13,7 @@ const indexJsName = "public/js/" + version + ".js";
 /** CSSのファイル名規則 */
 const mainCssName = "public/css/" + version + ".css";
 
-mix.ts("resources/ts/index.tsx", indexJsName)
+mix.ts("react-src/ts/index.tsx", indexJsName)
     .sourceMaps(productionSourceMaps, "eval-source-map")
     .options({
         terser: {
@@ -24,7 +24,7 @@ mix.ts("resources/ts/index.tsx", indexJsName)
             },
         },
     })
-    .sass("resources/sass/style.scss", mainCssName)
+    .sass("react-src/sass/style.scss", mainCssName)
     .webpackConfig(config);
 
 mix.browserSync({
@@ -44,5 +44,5 @@ mix.browserSync({
     },
     open: false,
     reloadOnRestart: true,
-    files: ["resources/sass/**/*.scss", "resources/ts/**/*.*"],
+    files: ["react-src/sass/**/*.scss", "react-src/ts/**/*.*"],
 });

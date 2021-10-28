@@ -39,7 +39,7 @@ module.exports = {
         extensions: [".ts", ".tsx"],
         alias: {
             /** エイリアスを増やす場合は、webpack.config.js, tsconfig.paths.json, .eslintrc.json の3つのファイルの変更が必要です */
-            "@": path.resolve(__dirname, "resources/ts/"),
+            "@": path.resolve(__dirname, "react-src/ts/"),
         },
     },
 };

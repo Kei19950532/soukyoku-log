@@ -45,7 +45,7 @@
         }
     },
     "lint-staged": {
-        "resources/**/*.{js,jsx,ts,tsx}": [
+        "react-src/**/*.{js,jsx,ts,tsx}": [
             "eslint --fix"
         ]
     },
