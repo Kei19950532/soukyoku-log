@@ -47,6 +47,12 @@
                 "php artisan optimize:clear &&",
                 "php artisan cache:clear"
             ]
+        },
+        {
+            "label": "NPM: Run Local Server",
+            "detail": "localサーバーを起動する",
+            "type": "shell",
+            "command": ["npm run watch"]
         }
     ]
 }
