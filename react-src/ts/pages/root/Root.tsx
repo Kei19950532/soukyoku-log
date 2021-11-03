@@ -1,12 +1,10 @@
 import React from "react";
 
 export const Root: React.VFC = () => {
-    const title: string = "TypeScript React !!";
-
     return (
         <div id="home" className="big-bg">
             <div className="home-content wrapper">
-                <h2 className="page-title">soukyoku log</h2>
+                <h2 className="page-title">Soukyoku Log</h2>
                 <p>
                     テキストテキストテキスト
                     <br />
