@@ -4,6 +4,8 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpack = require("webpack");
 
+const version = process.env.MIX_GITHUB_SHA || "development";
+
 /** Laravelのwebpack.mix.jsで扱うためにエクスポート */
 module.exports = {
     plugins: [
@@ -21,7 +23,7 @@ module.exports = {
             ],
         }),
     ],
-    output: { publicPath: "" },
+    output: { chunkFilename: "js/chunks/" + version + ".[id].js" },
     module: {
         rules: [
             {
@@ -39,7 +41,8 @@ module.exports = {
         extensions: [".ts", ".tsx"],
         alias: {
             /** エイリアスを増やす場合は、webpack.config.js, tsconfig.paths.json, .eslintrc.json の3つのファイルの変更が必要です */
-            "@": path.resolve(__dirname, "react-src/ts/"),
+            "@ts": path.resolve(__dirname, "react-src/ts/"),
+            "@sass": path.resolve(__dirname, "react-src/sass/"),
         },
     },
 };
