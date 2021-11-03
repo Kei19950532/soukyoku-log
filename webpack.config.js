@@ -4,6 +4,8 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpack = require("webpack");
 
+const version = process.env.MIX_GITHUB_SHA || "development";
+
 /** Laravelのwebpack.mix.jsで扱うためにエクスポート */
 module.exports = {
     plugins: [
@@ -21,7 +23,7 @@ module.exports = {
             ],
         }),
     ],
-    output: { publicPath: "" },
+    output: { chunkFilename: "js/chunks/" + version + ".[id].js" },
     module: {
         rules: [
             {

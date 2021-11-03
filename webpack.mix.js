@@ -2,7 +2,7 @@ const mix = require("laravel-mix");
 const glob = require("glob");
 const productionSourceMaps = false;
 
-const version = process.env.MIX_GITHUB_SHA ?? "development";
+const version = process.env.MIX_GITHUB_SHA || "development";
 
 /** webpack.config.jsで定義されているwebpackの設定 */
 const config = require("./webpack.config");
@@ -13,7 +13,7 @@ const indexJsName = "public/js/" + version + ".js";
 /** CSSのファイル名規則 */
 const mainCssName = "public/css/" + version + ".css";
 
-mix.ts("react-src/ts/index.tsx", indexJsName)
+mix.ts("react-src/ts/", indexJsName)
     .sourceMaps(productionSourceMaps, "eval-source-map")
     .options({
         terser: {
@@ -25,24 +25,23 @@ mix.ts("react-src/ts/index.tsx", indexJsName)
         },
     })
     .sass("react-src/sass/style.scss", mainCssName)
-    .webpackConfig(config);
-
-mix.browserSync({
-    https: {
-        key: "certs/server.key",
-        cert: "certs/server.crt",
-    },
-    port: 443,
-    proxy: {
-        target: "http://nginx",
-        proxyReq: [
-            function (proxyReq) {
-                proxyReq.setHeader("HOST", "localhost");
-                proxyReq.setHeader("X-Forwarded-Proto", "https");
-            },
-        ],
-    },
-    open: false,
-    reloadOnRestart: true,
-    files: ["react-src/sass/**/*.scss", "react-src/ts/**/*.*"],
-});
+    .webpackConfig(config)
+    .browserSync({
+        https: {
+            key: "certs/server.key",
+            cert: "certs/server.crt",
+        },
+        port: 443,
+        proxy: {
+            target: "http://nginx",
+            proxyReq: [
+                function (proxyReq) {
+                    proxyReq.setHeader("HOST", "localhost");
+                    proxyReq.setHeader("X-Forwarded-Proto", "https");
+                },
+            ],
+        },
+        open: false,
+        reloadOnRestart: true,
+        files: ["react-src/sass/**/*.scss", "react-src/ts/**/*.*"],
+    });
