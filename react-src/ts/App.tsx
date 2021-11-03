@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Root } from "@/pages";
+import { Root } from "@ts/pages";
 
 const App: React.VFC = () => {
     const title: string = "TypeScript React !!";
