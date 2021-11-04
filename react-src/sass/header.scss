@@ -1,0 +1,28 @@
+/* HEADER
+------------------------------- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+        width: 21rem;
+        margin-top: 1.4rem;
+    }
+    .main-nav {
+        display: flex;
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        margin-top: 3.4rem;
+        list-style: none;
+
+        li {
+            margin-left: 3.6rem;
+        }
+        a {
+            color: #432;
+        }
+        a:hover {
+            color: #0bd;
+        }
+    }
+}

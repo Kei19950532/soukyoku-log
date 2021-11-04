@@ -1,0 +1,55 @@
+/* 大きな背景画像 */
+.big-bg {
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+/* 見出し */
+.page-title {
+    font-size: 5rem;
+    font-family: "Philosopher", serif;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+.sub-title {
+    font-size: 1.375rem;
+    padding: 0 0.8rem 0.8rem;
+    border-bottom: 0.2rem #0bd solid;
+    font-weight: normal;
+}
+
+/* ボタン */
+.button {
+    font-size: 1.375rem;
+    background: #0bd;
+    color: #fff;
+    border-radius: 5rem;
+    padding: 1.8rem 3.2rem;
+}
+.button:hover {
+    background: #0090aa;
+}
+
+/* iframe */
+iframe {
+    width: 100%;
+}
+
+/* HOME
+------------------------------- */
+#home {
+    // background-image: url(../images/main-bg.jpg);
+    min-height: 100vh;
+}
+#home .page-title {
+    text-transform: none;
+}
+.home-content {
+    text-align: center;
+    margin-top: 10%;
+}
+.home-content p {
+    font-size: 1.125rem;
+    margin: 10px 0 42px;
+}
