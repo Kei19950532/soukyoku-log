@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Header, Footer } from "@/_components";
-import { Root } from "@/pages";
+import { Header, Footer } from "@ts/_components";
+import { Root } from "@ts/pages";
 
 const App: React.VFC = () => (
     <>

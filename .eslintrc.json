@@ -39,7 +39,10 @@
             "alias": {
                 "extensions": [".js", ".jsx", ".ts", ".tsx"],
                 /** エイリアスを増やす場合は、webpack.config.js, tsconfig.paths.json, .eslintrc.json の3つのファイルの変更が必要です */
-                "map": [["@", "./react-src/ts"]]
+                "map": [
+                    ["@ts", "./react-src/ts"],
+                    ["@sass", "./react-src/sass"]
+                ]
             }
         }
     }
