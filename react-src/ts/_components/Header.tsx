@@ -7,7 +7,7 @@ export const Header: React.VFC = () => (
                 <img
                     className="logo"
                     src="images/logo.png"
-                    alt="soukyoku log ホーム"
+                    alt="Soukyoku Log ホーム"
                 />
             </a>
         </h1>
