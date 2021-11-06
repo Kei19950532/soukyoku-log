@@ -5,12 +5,12 @@ export const Root: React.VFC = () => {
         <div id="home" className="big-bg">
             <div className="home-content wrapper">
                 <h2 className="page-title">Soukyoku Log</h2>
-                <p>
+                <p className="top-text">
                     テキストテキストテキスト
                     <br />
                     テキストテキストテキスト
                 </p>
-                <a className="button" href="about.html">
+                <a className="top-button" href="about.html">
                     ログイン
                 </a>
             </div>

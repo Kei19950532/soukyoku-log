@@ -26,7 +26,7 @@ export const Header: React.VFC = () => (
                     <a href="contact.html">新規会員登録</a>
                 </li>
                 <li>
-                    <a className="button" href="login.html">
+                    <a className="header-button" href="login.html">
                         ログイン
                     </a>
                 </li>
