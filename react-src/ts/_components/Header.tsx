@@ -3,7 +3,7 @@ import React from "react";
 export const Header: React.VFC = () => (
     <header className="page-header wrapper">
         <h1>
-            <a href="index.html">
+            <a href="index.tsx">
                 <img
                     className="logo"
                     src="images/logo.png"
@@ -14,7 +14,7 @@ export const Header: React.VFC = () => (
         <nav>
             <ul className="main-nav">
                 <li>
-                    <a href="profile.html">Home</a>
+                    <a href="root.tsx">Home</a>
                 </li>
                 <li>
                     <a href="about.html">Service</a>
