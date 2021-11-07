@@ -5,7 +5,7 @@ export const Root: React.VFC = () => {
         <div id="home" className="big-bg">
             <div className="home-content wrapper">
                 <h2 className="page-title">Soukyoku Log</h2>
-                <p className="top-text">
+                <p>
                     テキストテキストテキスト
                     <br />
                     テキストテキストテキスト
