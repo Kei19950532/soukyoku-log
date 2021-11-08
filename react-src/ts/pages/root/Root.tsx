@@ -17,3 +17,34 @@ export const Root: React.VFC = () => {
         </div>
     );
 };
+
+export const Root: React.VFC = () => {
+    return (
+        <div id="memder">
+            <div className="member-title">
+                "Member"
+                <span>開発メンバー紹介</span>
+
+            </div>
+            <div className="member-container clearfix">
+            <div className="member-cade">
+                <div className="member-cade-top clearfix">
+                    <img src=""></img>
+                    <div className="member-name">
+                        <p>
+                            <br>
+                            "Founder"
+                            </br>
+                        </p>
+                        <p className="name01">
+                            <br>
+                            "Kei"
+                        </p>
+                    </div>
+            </div>
+                    ログイン
+                </a>
+            </div>
+        </div>
+    );
+};
