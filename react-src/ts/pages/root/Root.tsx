@@ -18,7 +18,6 @@ export const Root: React.VFC = () => {
     );
 };
 
-export const Root: React.VFC = () => {
     return (
         <div id="memder">
             <div className="member-title">
@@ -42,9 +41,44 @@ export const Root: React.VFC = () => {
                         </p>
                     </div>
             </div>
-                    ログイン
-                </a>
+            <div className="member-cade-bottom">
+                <p>
+                    "テキストテキストテキスト"
+                    <br>
+                    <br>
+                    "テキストテキストテキスト"
+                    <br>
+                    <br>
+                    "テキストテキストテキスト"
+                </p>
+            </div>
+        </div>
+            <div className="member-container clearfix">
+            <div className="member-cade">
+                <div className="member-cade-top clearfix">
+                    <img src=""></img>
+                    <div className="member-name">
+                        <p>
+                            <br>
+                            "Founder"
+                            </br>
+                        </p>
+                        <p className="name01">
+                            <br>
+                            "Kei"
+                        </p>
+                    </div>
+            </div>
+            <div className="member-cade-bottom">
+                <p>
+                    "テキストテキストテキスト"
+                    <br>
+                    <br>
+                    "テキストテキストテキスト"
+                    <br>
+                    <br>
+                    "テキストテキストテキスト"
+                </p>
             </div>
         </div>
     );
-};
